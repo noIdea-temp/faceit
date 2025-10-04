@@ -6,33 +6,23 @@ VideoPreview
 
 ![scriptpreview-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6f119d81-75fc-4acf-81c2-36d8ab3e2edf)
 
-
-// Start HERE
-
 function deepQuerySelector(selector, root = document) {
   const visited = new Set();
   function* nodes(rootNode) {
     if (!rootNode || visited.has(rootNode)) return;
     visited.add(rootNode);
     yield rootNode;
-
     const tree = (rootNode instanceof Document || rootNode instanceof ShadowRoot)
       ? rootNode
       : rootNode.ownerDocument;
-    const walker = tree.createTreeWalker(
-      rootNode,
-      NodeFilter.SHOW_ELEMENT,
-      null
-    );
+    const walker = tree.createTreeWalker(rootNode, NodeFilter.SHOW_ELEMENT, null);
     let cur = rootNode;
     while (cur) {
       yield cur;
-
       if (cur.shadowRoot) yield* nodes(cur.shadowRoot);
       cur = walker.nextNode();
     }
   }
-
   for (const n of nodes(root)) {
     if (n.querySelector) {
       const found = n.querySelector(selector);
@@ -41,7 +31,6 @@ function deepQuerySelector(selector, root = document) {
   }
   return null;
 }
-
 
 function deepQueryInside(container, selector) {
   if (!container) return null;
@@ -69,20 +58,15 @@ document.body.appendChild(btn);
 
 btn.addEventListener('click', () => {
   const container = deepQuerySelector('[data-testid="video-container"]');
-
   if (!container) {
-    alert('Not found [data-testid="video-container"]');
+    alert('Не знайшов [data-testid="video-container"]');
     return;
   }
-
-  const firstVideoContent = deepQueryInside(container, '[data-testid="video-content"]')
-                          || container;
-
+  const firstVideoContent = deepQueryInside(container, '[data-testid="video-content"]') || container;
   const videoEl = deepQueryInside(firstVideoContent, 'video,[data-testid="shaka-player"]') || firstVideoContent;
-
-  const target = videoEl; // або firstVideoContent — як тобі потрібно
+  const target = videoEl;
   if (target.requestFullscreen) target.requestFullscreen();
   else if (target.webkitRequestFullscreen) target.webkitRequestFullscreen();
   else if (target.msRequestFullscreen) target.msRequestFullscreen();
-  else alert('Fullscreen API недоступний для цього елемента.');
+  else alert('Fullscreen API недоступний');
 });
