@@ -8,8 +8,6 @@ VideoPreview
 
 ## Fullscreen Button Script
 
-Встав цей код у DevTools Console або у свій проєкт:
-
 ```js
 function deepQuerySelector(selector, root = document) {
   const visited = new Set();
@@ -64,7 +62,7 @@ document.body.appendChild(btn);
 btn.addEventListener('click', () => {
   const container = deepQuerySelector('[data-testid="video-container"]');
   if (!container) {
-    alert('Не знайшов [data-testid="video-container"]');
+    alert('not found [data-testid="video-container"]');
     return;
   }
   const firstVideoContent = deepQueryInside(container, '[data-testid="video-content"]') || container;
