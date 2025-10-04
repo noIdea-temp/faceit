@@ -47,7 +47,7 @@ btn.textContent = 'Fullscreen';
 Object.assign(btn.style, {
   position: 'fixed',
   top: '20px',
-  right: '20px',
+  right: '75px',
   zIndex: '999999',
   padding: '10px 14px',
   background: '#e11',
