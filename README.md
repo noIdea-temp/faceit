@@ -5,7 +5,7 @@ Script for Face it that add a button with fullscreen functionality.
 VideoPreview
 
 ![scriptpreview-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6f119d81-75fc-4acf-81c2-36d8ab3e2edf)
-
+<code>
 function deepQuerySelector(selector, root = document) {
   const visited = new Set();
   function* nodes(rootNode) {
@@ -59,7 +59,7 @@ document.body.appendChild(btn);
 btn.addEventListener('click', () => {
   const container = deepQuerySelector('[data-testid="video-container"]');
   if (!container) {
-    alert('Не знайшов [data-testid="video-container"]');
+    alert('Not found [data-testid="video-container"]');
     return;
   }
   const firstVideoContent = deepQueryInside(container, '[data-testid="video-content"]') || container;
@@ -70,3 +70,6 @@ btn.addEventListener('click', () => {
   else if (target.msRequestFullscreen) target.msRequestFullscreen();
   else alert('Fullscreen API недоступний');
 });
+
+
+</code>
