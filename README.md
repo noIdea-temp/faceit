@@ -2,9 +2,10 @@
 Script for Face it that add a button with fullscreen functionality.
 
 
-VideoPreview
+Video Preview
 
-![scriptpreview-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6f119d81-75fc-4acf-81c2-36d8ab3e2edf)
+![Clipchamp-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/2779cbb8-4a3f-483a-b82a-b448000a0ac2)
+
 
 ## Fullscreen Button Script
 
